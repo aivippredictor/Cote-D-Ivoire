@@ -1,20 +1,207 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<title>Activation du compte dans le programme Predictor</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+:root {
+--bg: #020617;
+--card: #020617;
+--accent: #facc15;
+--accent-soft: rgba(250, 204, 21, 0.12);
+--accent-border: rgba(250, 204, 21, 0.6);
+--text-main: #f9fafb;
+--text-muted: #9ca3af;
+--border: #1f2937;
+--danger: #f97373;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #0f172a 0, #020617 45%, #000 100%);
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  direction: ltr;
+  text-align: left;
+}
+
+.page {
+  width: 100%;
+  max-width: 600px;
+}
+
+.card {
+  background: radial-gradient(circle at top left, #0b1120 0, #020617 55%, #020617 100%);
+  border-radius: 24px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  box-shadow: 0 22px 40px rgba(0, 0, 0, 0.6);
+  padding: 24px 22px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.badge-geo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #22c55e;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 1.6rem;
+}
+
+.subtitle {
+  margin: 0 0 16px;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 9px 11px;
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background: rgba(15, 23, 42, 0.95);
+  color: var(--text-main);
+}
+
+.error {
+  margin-top: 4px;
+  font-size: 0.8rem;
+  color: #fecaca;
+}
+
+.btn-main {
+  width: 100%;
+  margin-top: 8px;
+  padding: 11px 14px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, #facc15, #eab308);
+  color: #020617;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.status-box {
+  margin-top: 16px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.96);
+  display: none;
+}
+
+.deposit-warning {
+  margin-top: 10px;
+  padding: 9px 11px;
+  border-radius: 12px;
+  background: rgba(220, 38, 38, 0.18);
+  font-size: 0.85rem;
+  display: none;
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+<section class="card">
+<div class="card-inner">
+
+<div class="badge-geo">
+<span class="badge-dot"></span>
+Connexion compte 1xBet · Predictor
+</div>
+
 <h1>🎯 Activation du compte</h1>
 
 <p class="subtitle">
-  Entrez votre ID 1xBet (10 chiffres, commence par <b>176</b>).
-  Nous connecterons ensuite votre compte au Predictor.
+Entrez votre ID 1xBet (10 chiffres, commence par <strong>176</strong>).
+Après vérification, nous connecterons votre compte au Predictor.
 </p>
 
-<form id="form">
-  <input id="id" placeholder="Ex: 1761234567">
-  <button class="btn">Vérifier et connecter</button>
+<form id="connect-form">
+<input type="text" id="account-id" maxlength="10" placeholder="Exemple: 1761234567"/>
+<div id="error" class="error"></div>
+
+<button class="btn-main">Vérifier et connecter</button>
 </form>
 
-<div id="status" class="status"></div>
+<div id="status-box" class="status-box"></div>
 
-<div id="warning" class="warning">
-  ❌ Activation impossible<br><br>
-  Votre solde est actuellement 0.<br>
-  Pour activer le système, faites un dépôt minimum de <b>250 €</b>.<br><br>
-  Ensuite, revenez et relancez la vérification.
+<div id="deposit-warning" class="deposit-warning">
+<strong>🚫 Activation impossible :</strong><br>
+Votre solde est actuellement = 0.<br>
+Pour activer le système, vous devez effectuer un dépôt minimum de
+<strong>2500 XOF</strong>.<br>
+Après le dépôt, revenez et relancez la vérification.
 </div>
+
+</div>
+</section>
+</div>
+
+<script>
+const form = document.getElementById("connect-form");
+const input = document.getElementById("account-id");
+const errorEl = document.getElementById("error");
+
+form.addEventListener("submit", function(e){
+e.preventDefault();
+
+const id = input.value.trim();
+
+if (!/^\d+$/.test(id)) {
+errorEl.textContent = "L'ID doit contenir uniquement des chiffres.";
+return;
+}
+
+if (id.length !== 10) {
+errorEl.textContent = "L'ID doit contenir exactement 10 chiffres.";
+return;
+}
+
+if (!id.startsWith("176")) {
+errorEl.textContent = "L'ID doit commencer par 176.";
+return;
+}
+
+document.getElementById("status-box").style.display = "block";
+document.getElementById("status-box").innerHTML = "Connexion en cours...";
+
+setTimeout(() => {
+document.getElementById("deposit-warning").style.display = "block";
+}, 2000);
+
+});
+</script>
+
+</body>
+</html>

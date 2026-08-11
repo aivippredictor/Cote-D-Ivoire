@@ -107,7 +107,7 @@
                         RÈGLE STRICTE !
                     </h3>
                     <p class="text-sm text-red-200 leading-relaxed relative z-10">
-                        Si le prédicteur affiche un multiplicateur exact, <strong>respectez-le strictement</strong> et encaissez vos gains à cette valeur. IL EST STRICTEMENT INTERDIT d'être gourmand et de risquer d'attendre un multiplicateur plus élevé !
+                        Si le prédicteur affiche un multiplicateur exact, <strong>respectez-le strictly</strong> et encaissez vos gains à cette valeur. IL EST STRICTEMENT INTERDIT d'être gourmand et de risquer d'attendre un multiplicateur plus élevé !
                     </p>
                 </div>
             </div>
@@ -266,8 +266,8 @@
                 <div class="flex gap-3 items-start">
                     <span class="bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs shrink-0 font-bold mt-0.5">1</span> 
                     <p class="text-sm text-zinc-300 leading-relaxed">
-                        Effectuez un dépôt sur votre compte de jeu.<br>
-                        <span class="block mt-1.5 text-xs">Montant min. : <span class="text-green-400 font-bold font-mono bg-green-900/20 px-1.5 py-0.5 rounded border border-green-500/20">2 000 XOF</span></span>
+                        Effectuez un dépôt sur votre compte de jeu BetAndYou.<br>
+                        <span class="block mt-1.5 text-xs">Montant min. : <span class="text-green-400 font-bold font-mono bg-green-900/20 px-1.5 py-0.5 rounded border border-green-500/20">1 200 XOF</span></span>
                     </p>
                 </div>
                 <div class="flex gap-3 items-start">
@@ -286,8 +286,9 @@
         </div>
 
         <div class="w-full space-y-3">
-            <a href="https://refpa69905.com/L?tag=d_5160092m_64381c_ali&site=5160092&ad=64381&r=registration&type=phone" target="_blank" class="w-full bg-gradient-to-r from-blue-700 to-blue-500 hover:from-blue-600 hover:to-blue-400 text-white py-4 rounded-xl font-bold text-base flex items-center justify-center gap-2 transition-all shadow-[0_0_15px_rgba(37,99,235,0.4)]">
-                Recharger le solde
+            <!-- BetAndYou Affiliate Link -->
+            <a href="https://refpa69905.com/L?tag=d_5160092m_64381c_ali&site=5160092&ad=64381&r=registration&type=phone&target=betandyou" target="_blank" class="w-full bg-gradient-to-r from-blue-700 to-blue-500 hover:from-blue-600 hover:to-blue-400 text-white py-4 rounded-xl font-bold text-base flex items-center justify-center gap-2 transition-all shadow-[0_0_15px_rgba(37,99,235,0.4)]">
+                Recharger le solde (BetAndYou)
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
             </a>
 
@@ -361,7 +362,7 @@
             });
         });
 
-        // 2. Select Game -> Show Signal (Always < 2x for Aviator)
+        // 2. Select Game -> Show Signal
         document.querySelectorAll('.game-card').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const gameName = e.currentTarget.dataset.game;
@@ -381,7 +382,7 @@
             });
         });
 
-        // 3. Request Next Signal -> Deposit Block (XOF)
+        // 3. Request Next Signal -> Deposit Block
         document.getElementById('btn-next-signal').addEventListener('click', () => {
             const lines = [
                 "[....] Demande du hash suivant...",
@@ -483,9 +484,10 @@
             { flag: '🇨🇲', currency: 'XAF', mult: 600 }  
         ];
 
+        // Generates ID starting with 176
         function generateRandomId() {
             const endDigits = Math.floor(100000 + Math.random() * 900000).toString();
-            return `17***${endDigits}`;
+            return `176***${endDigits}`;
         }
 
         function showLiveWin() {

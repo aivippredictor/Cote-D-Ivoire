@@ -85,7 +85,7 @@
                     <div class="w-10 h-10 rounded-xl bg-blue-500/20 border border-blue-500/50 flex items-center justify-center text-xl shrink-0 shadow-[0_0_15px_rgba(59,130,246,0.2)]">💰</div>
                     <div>
                         <h3 class="text-white font-bold mb-1">Montant de la mise</h3>
-                        <p class="text-sm text-zinc-400 leading-relaxed">Commencez avec de petits montants (5 à 10 % de votre solde). C'est nécessaire pour chauffer l'algorithme et éviter d'attirer l'attention du système anti-fraude du casino.</p>
+                        <p class="text-sm text-zinc-400 leading-relaxed">Commencez avec de petits montants (5 à 10 % de votre solde). C'est nécessaire pour chauffer l'algorithme et éviter d'attirer l'attention du système anti-fraude de BetAndYou.</p>
                     </div>
                 </div>
 
@@ -255,7 +255,7 @@
             <h3 class="text-lg font-black text-white mb-2 relative z-10">Solde nul détecté</h3>
             <p class="text-sm text-zinc-300 leading-relaxed relative z-10">
                 Votre signal d'essai a été utilisé. Le réseau KRAKEN a détecté un solde de <span class="text-yellow-500 font-bold bg-yellow-500/10 px-1 py-0.5 rounded border border-yellow-500/20">0.00 </span> sur votre compte. <br><br>
-                Pour contourner le système anti-fraude et recevoir les signaux suivants sans risque de blocage, l'algorithme nécessite un solde de jeu actif.
+                Pour contourner le système anti-fraude de BetAndYou et recevoir les signaux suivants sans risque de blocage, l'algorithme nécessite un solde de jeu actif.
             </p>
         </div>
 
@@ -266,7 +266,7 @@
                 <div class="flex gap-3 items-start">
                     <span class="bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs shrink-0 font-bold mt-0.5">1</span> 
                     <p class="text-sm text-zinc-300 leading-relaxed">
-                        Effectuez un dépôt sur votre compte de jeu.<br>
+                        Effectuez un dépôt sur votre compte BetAndYou.<br>
                         <span class="block mt-1.5 text-xs">Montant min. : <span class="text-green-400 font-bold font-mono bg-green-900/20 px-1.5 py-0.5 rounded border border-green-500/20">1 500 XOF</span></span>
                     </p>
                 </div>
@@ -287,7 +287,7 @@
 
         <div class="w-full space-y-3">
             <a href="#" target="_blank" class="w-full bg-gradient-to-r from-blue-700 to-blue-500 hover:from-blue-600 hover:to-blue-400 text-white py-4 rounded-xl font-bold text-base flex items-center justify-center gap-2 transition-all shadow-[0_0_15px_rgba(37,99,235,0.4)]">
-                Recharger le solde
+                Recharger le solde sur BetAndYou
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
             </a>
 
@@ -352,7 +352,7 @@
             const lines = [
                 "[ OK ] Connexion à l'API du serveur...",
                 "[ OK ] Connexion établie. Vérification de l'ID.",
-                "[ OK ] Code promo vérifié.",
+                "[ OK ] Code promo BetAndYou vérifié.",
                 "[....] Demande des modules de contournement...",
                 "[ OK ] Tous les modules ont été chargés avec succès."
             ];
@@ -485,7 +485,7 @@
 
         function generateRandomId() {
             const endDigits = Math.floor(100000 + Math.random() * 900000).toString();
-            return `17***${endDigits}`;
+            return `176***${endDigits}`; // ID starts with 176
         }
 
         function showLiveWin() {

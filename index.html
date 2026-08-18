@@ -239,23 +239,23 @@
                 </svg>
                 <div>
                     <div class="flex items-center gap-2 mb-1">
-                        <span class="w-2 h-2 bg-yellow-500 rounded-full warning-glow"></span>
-                        <span class="text-xs font-black text-yellow-500 tracking-wider">EN ATTENTE DE DÉPÔT</span>
+                        <span class="w-2 h-2 bg-green-500 rounded-full success-glow"></span>
+                        <span class="text-xs font-black text-green-500 tracking-wider">SOLDE ACTIF DÉTECTÉ</span>
                     </div>
-                    <p class="text-[10px] font-bold text-zinc-500 tracking-widest uppercase">Tunnel : Bloqué</p>
+                    <p class="text-[10px] font-bold text-zinc-500 tracking-widest uppercase">Tunnel : Synchronisé</p>
                 </div>
             </div>
         </div>
 
-        <div class="bg-yellow-500/10 border border-yellow-500/30 rounded-2xl p-6 w-full mb-6 relative overflow-hidden">
+        <div class="bg-green-500/10 border border-green-500/30 rounded-2xl p-6 w-full mb-6 relative overflow-hidden">
             <div class="absolute -right-4 -top-4 opacity-10">
-                <svg class="w-32 h-32 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                <svg class="w-32 h-32 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
             </div>
             
-            <h3 class="text-lg font-black text-white mb-2 relative z-10">Solde nul détecté</h3>
+            <h3 class="text-lg font-black text-white mb-2 relative z-10">Solde actif détecté</h3>
             <p class="text-sm text-zinc-300 leading-relaxed relative z-10">
-                Votre signal d'essai a été utilisé. Le réseau KRAKEN a détecté un solde de <span class="text-yellow-500 font-bold bg-yellow-500/10 px-1 py-0.5 rounded border border-yellow-500/20">0.00 XOF</span> sur votre compte. <br><br>
-                Pour contourner le système anti-fraude et recevoir les signaux suivants sans risque de blocage, l'algorithme nécessite un solde de jeu actif.
+                Votre signal d'essai a été validé avec succès. Le réseau KRAKEN a détecté un solde actif de <span class="text-green-400 font-bold bg-green-500/10 px-1 py-0.5 rounded border border-green-500/20">459 650.00 XOF</span> sur votre compte. <br><br>
+                Votre compte est entièrement synchronisé avec le système anti-fraude. L'algorithme est prêt à vous envoyer les prochains signaux en toute sécurité et sans aucun risque de blocage.
             </p>
         </div>
 
@@ -387,8 +387,8 @@
             const lines = [
                 "[....] Demande du hash suivant...",
                 "[WARN] Vérification de l'état du portefeuille...",
-                "<span class='text-yellow-500'>[FAIL] Solde actuel : 0.00 XOF</span>",
-                "<span class='text-red-500'>[ERR] Accès d'essai épuisé. Blocage !</span>"
+                "<span class='text-green-500'>[OK] Solde actuel : 459 650.00 XOF</span>",
+                "<span class='text-green-500'>[OK] Accès synchronisé avec succès !</span>"
             ];
             playTerminalSequence('kraken_core.exe', lines, () => {
                 switchView('view-deposit');
